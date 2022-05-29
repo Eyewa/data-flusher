@@ -14,10 +14,8 @@
 
 # Run
 
-Copy and paste any `.env.[dev|uat|prod]` file and keep it just `.env`. Then
-
 ```go
-  go run main.go
+ENV=dev|uat|prod go run main.go
 ```
 
 or in **VS Code** just hit `F5`

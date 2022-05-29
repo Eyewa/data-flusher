@@ -45,7 +45,7 @@ func Init() error {
 
 	// only look for/use .env file if no env is set
 	if _, isset := os.LookupEnv("ENV"); !isset {
-		viper.SetConfigName(".env")
+		viper.SetConfigName(".env." + os.Getenv("ENV"))
 		viper.AddConfigPath("../")
 		viper.AddConfigPath("../../") // for pact/provider testing package
 		viper.AddConfigPath(".")
