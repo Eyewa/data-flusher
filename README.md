@@ -1,12 +1,12 @@
 # Data Flusher
 
 - Flushes all data in microservice env
-  - It just **flushes** all data in Postgresql (truncate table)
+  - It just **flushes** data in Postgresql
   - It **truncates** `product`, `variants` and `jobs_special_price_expiry` tables
   - It **doesn't remove** tables.
 - Flushes Algolia
-  - **Doesn't remove** indexes, replica indexs or other resources
-  - **Doesn't change** or **remove** index configuration
+  - **Doesn't remove** indexes, replica indexs or other resources in **Algolia**
+  - **Doesn't change** or **remove** index configurations
 
 # Before Run
 
