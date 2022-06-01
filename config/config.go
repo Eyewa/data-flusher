@@ -42,19 +42,16 @@ func Init() error {
 	// attempt to read vars from env
 	viper.AutomaticEnv()
 	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-
 	// only look for/use .env file if no env is set
-	if _, isset := os.LookupEnv("ENV"); !isset {
-		viper.SetConfigName(".env." + os.Getenv("ENV"))
-		viper.AddConfigPath("../")
-		viper.AddConfigPath("../../") // for pact/provider testing package
-		viper.AddConfigPath(".")
-		viper.SetConfigType("env")
+	viper.SetConfigName(".env." + os.Getenv("ENV"))
+	viper.AddConfigPath("../")
+	viper.AddConfigPath("../../") // for pact/provider testing package
+	viper.AddConfigPath(".")
+	viper.SetConfigType("env")
 
-		err := viper.ReadInConfig()
-		if err != nil {
-			return err
-		}
+	err := viper.ReadInConfig()
+	if err != nil {
+		return err
 	}
 
 	// Bind viper keys to env vars
